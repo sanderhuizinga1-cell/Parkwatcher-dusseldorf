@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#0d0d12">
+    <title>DUS Parking Monitor</title>
+    <meta name="description" content="Live parking monitor for Dusseldorf Airport">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🅿️</text></svg>">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header glass">
+            <div>
+                <h1>DUS Parking</h1>
+                <p class="subtitle" id="last-updated">Updating...</p>
+            </div>
+            <button id="notify-btn" class="icon-btn glass-btn" aria-label="Toggle Notifications">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+            </button>
+        </header>
+
+        <main class="content">
+            <div id="loading" class="loading-state">
+                <div class="spinner"></div>
+                <p>Fetching live data...</p>
+            </div>
+            
+            <div id="parking-grid" class="parking-grid hidden">
+                <!-- Cards injected here via JS -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Notification Settings Modal -->
+    <div id="modal-overlay" class="modal-overlay hidden">
+        <div class="modal glass">
+            <h2>Alert Settings</h2>
+            <p>Select which parking zones you want to monitor. You will receive a notification when a selected zone is full.</p>
+            
+            <div id="alert-options" class="alert-options">
+                <!-- Options injected here -->
+            </div>
+            
+            <div class="modal-actions">
+                <button id="close-modal" class="primary-btn">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/app.js"></script>
+</body>
+</html>
